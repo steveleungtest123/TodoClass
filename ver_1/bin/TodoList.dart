@@ -14,7 +14,8 @@ class TodoList {
     _name = name;
   }
 
-  List<TodoObject> orderByTargetDate({Direction direction, List<TodoObject> todoList}) {
+  List<TodoObject> orderByTargetDate(
+      {Direction direction, List<TodoObject> todoList}) {
     final temp = List<TodoObject>.from(todoList ?? list);
     temp.sort((a, b) {
       final condi = a.targetDate.time.isBefore(b.targetDate.time);
@@ -27,7 +28,8 @@ class TodoList {
     return temp;
   }
 
-  List<TodoObject> orderByCreateDate({Direction direction, List<TodoObject> todoList}) {
+  List<TodoObject> orderByCreateDate(
+      {Direction direction, List<TodoObject> todoList}) {
     final temp = List<TodoObject>.from(todoList ?? list);
     temp.sort((a, b) {
       final condi = a.created.time.isBefore(b.created.time);
@@ -64,9 +66,10 @@ class TodoList {
 
   Map<String, List<TodoObject>> categorizedByDate() {
     final result = <String, List<TodoObject>>{};
-    final orderedList = orderByTargetDate();
+    final orderedList = orderByImportance(direction: Direction.Decs);
     orderedList.forEach((element) {
-      final key = SimpleDateTime.timeString(element.targetDate.time);
+      final key = SimpleDateTime.timeString(element.targetDate.time,
+          formatString: 'yyyy/MM/dd');
       final exits = result.containsKey(key);
       if (!exits) result[key] = <TodoObject>[];
       result[key].add(element);

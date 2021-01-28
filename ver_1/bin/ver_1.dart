@@ -1,5 +1,4 @@
 import 'TodoObject.dart';
-import 'common/SimpleDateTime.dart';
 import 'TodoList.dart';
 
 void main() {
@@ -15,9 +14,9 @@ void main() {
 
   test.list[1].setFinished();
 
-  // final ordered = test.getOrder(Order.Finished, Direction.Asc);
-  // ordered.forEach((element) {
-  //   print(element.title);
-  //   print(element.finished);
-  // });
+  final result = test.categorizedByDate();
+  result.forEach((key, value) {
+    print('date: ${key}');
+    value.forEach((element) => print(element.title));
+  });
 }

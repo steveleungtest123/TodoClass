@@ -65,7 +65,7 @@ class TodoObject {
 
     final now = DateTime.now();
     _targetDate =
-        targetDate ?? DateTime(now.year, now.month, now.day, 24, 59, 59);
+        targetDate ?? SimpleDateTime(DateTime(now.year, now.month, now.day, 24, 59, 59));
   }
 
   void setAlaram({bool enabled, DateTime time}) {

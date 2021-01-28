@@ -22,8 +22,8 @@ class SimpleDateTime {
     _time.subtract(dur);
   }
 
-  static String timeString(DateTime time, {DateFormat formatString}) {
-    final formatter = DateFormat(formatString ?? 'yyyy-mm-dd HH:mm:ss');
+  static String timeString(DateTime time, {String formatString}) {
+    final formatter = DateFormat(formatString ?? 'yyyy-MM-dd HH:mm:ss');
     return formatter.format(time);
   }
 }
