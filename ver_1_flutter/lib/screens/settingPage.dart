@@ -17,7 +17,7 @@ class _SettingPageState extends State<SettingPage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // Navigate back to first screen when tapped.
+            Navigator.pop(context);
           },
           child: Text('Go back!'),
         ),
